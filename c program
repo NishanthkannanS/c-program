@@ -1,0 +1,113 @@
+1.Factorial of a number with /without recursion
+#include <stdio.h>
+int fact(int val)
+{
+    if(val<=1)
+    return 1;
+    else
+    return val*fact(val-1);
+}
+int main()
+{
+    int num;
+    scanf("%d",&num);
+    printf("%d",fact(num));
+    return 0;
+}
+
+2.Fibonacci series with the limit
+#include <stdio.h>
+
+int main() {
+    int limit,t1=0,t2=1,t3;
+    scanf("%d",&limit);
+    printf("%d%d",t1,t2);
+    for(int i=0;i<limit-2;i++)
+    {
+        t3=t1+t2;
+        printf("%d",t3);
+        t1=t2;
+        t2=t3;
+    }
+    return 0;
+}
+3.nth digit
+#include <stdio.h>
+
+int main() {
+    int limit,t1=0,t2=1,t3;
+    scanf("%d",&limit);
+    for(int i=0;i<limit-2;i++)
+    {
+        t3=t1+t2;
+        t1=t2;
+        t2=t3;
+    }
+    printf("%d",t3);
+    return 0;
+}
+4.armstrong num
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int num,temp,temp1,count=0,res=0,digit;
+    scanf("%d",&num);
+    temp=num;
+    temp1=num;
+    while(num>0)
+    {
+        num=num/10;
+        count++;
+    }
+    printf("%d",count);
+    while(temp>0)
+    {
+        digit=temp%10;
+        res+=pow(digit,count);
+        temp=temp/10;
+    }
+    if(temp1==res)
+    printf("armstrong");
+    else
+    printf("not a armstrong");
+    return 0;
+}
+5.palindrome
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int num,temp,rev=0,digit;
+    scanf("%d",&num);
+    temp=num;
+    while(num>0)
+    {
+        digit=num%10;
+        rev=rev*10+digit;
+        num=num/10;
+    }
+    if(temp==rev)
+    printf("palindrome");
+    else
+    printf("not a palindrome");
+    return 0;
+}
+6.prime
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int num,var,count=0;
+    scanf("%d",&num);
+    for(int i=1;i<=num;i++)
+    {
+        var=num%i;
+        if(var==0)
+        {
+        count++;
+        }
+    }
+    if(count==2)
+    printf("prime");
+    else
+    printf("not a prime");
+    return 0;
+}
