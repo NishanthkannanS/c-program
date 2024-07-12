@@ -1,0 +1,140 @@
+1.accept n values of array and display in rev order
+#include<stdio.h>
+int main() {
+    // Write C code here
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }  
+    for(int i=n-1;i>=0;i--)
+    {
+        
+        printf("%d\t",arr[i]);
+    }
+    return 0;
+}
+2.count of 0's and 1's
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int n,arr[n],rev[n];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    for(int j=arr[n];j<=arr[0];j++)
+    {
+        rev[n]=arr[j];
+        printf("%d",rev[n]);
+    }
+    return 0;
+}
+3.count the less  numbers than key element
+#include<stdio.h>
+int main() {
+    int n,key,count=0;
+    //size of array
+    scanf("%d",&n);
+    //array initialization
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d ",&arr[i]);
+    }
+    //user enter key value
+    scanf("%d",&key);
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]<key)
+            count++;
+    }
+    printf("%d",count);
+    return 0;
+}
+4.repeated elements
+
+#include<stdio.h>
+int main() {
+    int n;
+    //size of array
+    scanf("%d",&n);
+    //array initialization
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+      for(int i=0;i<n;i++)
+    {
+        if(arr[i]==arr[i+1])
+        {
+            printf("%d",arr[i]);
+        }
+    }
+ 
+    return 0;
+}
+5.searching an element
+
+#include<stdio.h>
+int main() {
+    int n,search,count=0;
+    //size of array
+    scanf("%d",&n);
+    //array initialization
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d ",&arr[i]);
+    }
+    //user enter key value
+    scanf("%d",&search);
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]==search)
+        {
+            printf("%d",i);
+            count++;
+            break;
+        }
+    }
+    if(count==0)
+     printf("-1");
+    return 0;
+}
+6.segregation of 0's and 1's
+#include<stdio.h>
+int main() {
+    int n,temp;
+    //size of array
+    scanf("%d",&n);
+    //array initialization
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+      for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[j]<arr[i])
+            {
+            temp=arr[j];
+            arr[j]=arr[i];
+            arr[i]=temp;
+            }
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        printf("%d\t",arr[i]);
+    }
+    return 0;
+}
