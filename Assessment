@@ -1,0 +1,105 @@
+Input Format
+
+The first line contains 2 space separated integers, N and K. The second line contains N space-separated integers, each a value of ar[I].
+
+Constraints
+
+2<=N<=100 1<=K<=100 1<=ar[I]<=100
+
+Output Format
+
+The number of pairs
+
+Sample Input 0
+
+6 5
+1 2 3 4 5 6 
+Sample Output 0
+
+3
+Explanation 0
+
+Given an array of integers ar = [1, 2, 3, 4, 5, 6] and a positive integer K = 5, Avis must determine the number of pairs (I, J) where I < J and ar[I] + ar[J] is divisible by K.
+
+In this scenario, three pairs meet the criteria:
+
+(1, 4) because 1 + 4 = 5, which is divisible by 5. (2, 3) because 2 + 3 = 5, which is divisible by 5. (4, 6) because 4 + 6 = 10, which is divisible by 5.
+
+So, the number of valid pairs is 3.
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,k,sum=0,count=0;
+    scanf("%d %d",&n,&k);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            sum=arr[i]+arr[j];
+            if(sum%k==0)
+                count++;
+        }
+    }
+    printf("%d",count);
+    return 0;
+}
+To find the K th largest element in a given array.
+
+Input Format
+
+Single integer N value Single Integer K value N number of Integers
+
+Constraints
+
+1>=N<=100 1>=K<=100
+
+Output Format
+
+Single integer largest value
+
+Sample Input 0
+
+5 3
+7 5 1 9 8 
+Sample Output 0
+
+7
+  #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,le;
+    scanf("%d %d",&n,&le);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            int temp;
+            if(arr[j]>arr[i])
+            {
+                temp=arr[j];
+                arr[j]=arr[i];
+                arr[i]=temp;
+            }
+        }
+    }
+    //
+    printf("%d",arr[le-1]);
+    
+    return 0;
+}
