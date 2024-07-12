@@ -1,4 +1,4 @@
-Input Format
+1.Input Format
 
 The first line contains 2 space separated integers, N and K. The second line contains N space-separated integers, each a value of ar[I].
 
@@ -26,6 +26,7 @@ In this scenario, three pairs meet the criteria:
 (1, 4) because 1 + 4 = 5, which is divisible by 5. (2, 3) because 2 + 3 = 5, which is divisible by 5. (4, 6) because 4 + 6 = 10, which is divisible by 5.
 
 So, the number of valid pairs is 3.
+code:
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -51,7 +52,7 @@ int main() {
     printf("%d",count);
     return 0;
 }
-To find the K th largest element in a given array.
+2.To find the K th largest element in a given array.
 
 Input Format
 
@@ -70,9 +71,10 @@ Sample Input 0
 5 3
 7 5 1 9 8 
 Sample Output 0
-
 7
-  #include <stdio.h>
+
+code:
+#include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
@@ -103,3 +105,33 @@ int main() {
     
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
