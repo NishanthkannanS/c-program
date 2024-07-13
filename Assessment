@@ -106,7 +106,7 @@ int main() {
     return 0;
 }
 day 4
-Find the Each row sum value individually and find maximum sum value
+3.Find the Each row sum value individually and find maximum sum value
 
 Input Format
 
@@ -163,7 +163,7 @@ int main() {
     return 0;
 }
 
-To find the maximum occurrence element in a given array
+4.To find the maximum occurrence element in a given array
 
 Input Format
 
@@ -213,6 +213,61 @@ int main() {
     return 0;
 }
 
+
+5.Given N balls of colour red, white or blue arranged in a line in random order. You have to arrange all the balls such that the balls with the same colours are adjacent with the order of the balls, with the order of the colours being red, white and blue (i.e., all red coloured balls come first then the white coloured balls and then the blue coloured balls).
+
+Input Format
+
+single integer array size N. N number of array values
+
+Constraints
+
+1<=N<=100
+
+Output Format
+
+output array value
+
+Sample Input 0
+
+5
+0 1 0 2 1 
+Sample Output 0
+
+0 0 1 1 2
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,temp;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+      for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[j]<arr[i])
+            {
+            temp=arr[j];
+            arr[j]=arr[i];
+            arr[i]=temp;
+            }
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
 
 
 
