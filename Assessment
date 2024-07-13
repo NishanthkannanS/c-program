@@ -105,6 +105,113 @@ int main() {
     
     return 0;
 }
+day 4
+Find the Each row sum value individually and find maximum sum value
+
+Input Format
+
+Single integer for Matrix size
+
+N*N size matrix values
+
+Constraints
+
+1<=N<=100
+
+Output Format
+
+Sigle Integer Sum value
+
+Sample Input 0
+
+3
+8 6 4
+1 4 2
+4 9 9 
+Sample Output 0
+
+22
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n,sum=0,max=0;
+    scanf("%d",&n);
+    int arr[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        sum=0;
+        for(int j=0;j<n;j++)
+        {
+            sum+=arr[i][j];
+        }
+        if(max<sum)
+            max=sum;
+    }
+    printf("%d",max);
+    return 0;
+}
+
+To find the maximum occurrence element in a given array
+
+Input Format
+
+Single integer N value N Number of integer values
+
+Constraints
+
+1<=N<=100
+
+Output Format
+
+Occurrence values
+
+Sample Input 0
+
+5
+3 4 1 3 67 
+Sample Output 0
+
+3
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,count=0,var;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+    for(int i=0;i<n;i++)
+    {
+    for(int j=i+1;j<n;j++)
+        {
+          if(arr[i]==arr[j])
+              count++;
+          if(count!=0)
+         var=arr[i];
+        }
+    }
+    printf("%d",var);
+    return 0;
+}
 
 
 
