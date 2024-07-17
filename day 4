@@ -1,0 +1,217 @@
+1.length of string
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int len=strlen(arr);
+    printf("%d",len-1);
+
+    return 0;
+}
+or
+2.// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0;
+    while(arr[index]!='\0')
+    index++;
+    printf("%d",index-1);
+    return 0;
+}
+or
+
+3.seperate alpha,digit and special characters
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0,alpha=0,digit=0,special=0;
+    while(arr[index]!='\0')
+    {
+        if((arr[index]>='a'&&arr[index]<='z')||(arr[index]>='A'&&arr[index]<='Z'))
+        alpha++;
+        else if(arr[index]>='0'&&arr[index]<='9')
+        digit++;
+        else
+        special++;
+        index++;
+    }
+    printf("alphabet-%d\ndigits-%d\nspecial-%d,alpha,digit,special-1");
+    return 0;
+}
+4.count of voels and consonants
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0,vowels=0,cons=0;
+    while(arr[index]!='\0')
+    {
+        if(arr[index]=='a'||arr[index]=='e'||arr[index]=='i'||arr[index]=='o'||arr[index]=='u'||arr[index]=='A'||arr[index]=='E'||arr[index]=='I'||arr[index]=='O'||arr[index]=='U')
+        vowels++;
+        else
+        cons++;
+        index++;
+    }
+    printf("vowels-%d\nconsonants-%d",vowels,cons-1);
+    return 0;
+}
+5.convert as uppercase
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0;
+    while(arr[index]!='\0')
+    {
+        if(arr[index]>='a'&& arr[index]<='z')
+        arr[index]=arr[index]-32;
+        else
+        arr[index]=arr[index]+32;
+        index++;
+    }
+    printf("%s",arr);
+    return 0;
+}
+6.convert as lowercase
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0;
+    while(arr[index]!='\0')
+    {
+        if(arr[index]>='A'&& arr[index]<='Z')
+        arr[index]=arr[index]+32;
+        index++;
+    }
+    printf("%s",arr);
+    return 0;
+}
+7.change UPPER AND lower case or toggle
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[30];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0;
+    while(arr[index]!='\0')
+    {
+        if(arr[index]>='a'&& arr[index]<='z')
+        arr[index]=arr[index]-32;
+        else if(arr[index]>='A'&& arr[index]<='Z')
+        arr[index]=arr[index]+32;
+        index++;
+    }
+    printf("%s",arr);
+    return 0;
+}
+8.print individual character
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[50];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0;
+    while(arr[index]!='\0')
+    {
+        printf("%c ",arr[index]);
+        index++;
+    }
+    return 0;
+}
+9.print thr individual character in reverse
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[50];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0;
+    while(arr[index]!='\0')
+    index++;
+    //printf("%d",index);
+    for(int i=index-2;i>=0;i--)
+    {
+        printf("%c ",arr[i]);
+    }
+    return 0;
+}
+10.count the words in sentence
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+int main() {
+    // Write C code here
+    char arr[50];
+    fgets(arr,sizeof(arr),stdin);
+    puts(arr);
+    int index=0,countword=0;
+    while(arr[index]!='\0')
+    {
+        if(arr[index]==' ' || arr[index]=='\t' || arr[index]=='\n')
+        countword++;
+        index++;
+    }
+    printf("%d",countword);
+    return 0;
+}
+11.sand clock sum
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    int max=0,sum=0;
+    for(int i=0;i<r-2;i++)
+    {
+        for(int j=0;j<c-2;j++)
+        {
+          sum=arr[i][j]+arr[i][j+1]+arr[i][j+2]+arr[i+1][j+1]+arr[i+2][j]+arr[i+2][j+1]+arr[i+2][j+2];
+          if(max<sum)
+          max=sum;
+        }
+    }
+    printf("%d",max);
+    return 0;
+}
