@@ -105,7 +105,6 @@ int main() {
     
     return 0;
 }
-day 4
 3.Find the Each row sum value individually and find maximum sum value
 
 Input Format
@@ -131,7 +130,8 @@ Sample Input 0
 Sample Output 0
 
 22
-#include <stdio.h>
+
+include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
@@ -184,6 +184,7 @@ Sample Input 0
 Sample Output 0
 
 3
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -192,25 +193,45 @@ Sample Output 0
 int main() {
 
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+
     int n,count=0,var;
+
     scanf("%d",&n);
+
     int arr[n];
+
     for(int i=0;i<n;i++)
+
         {
+
             scanf("%d",&arr[i]);
+
         }
+
     for(int i=0;i<n;i++)
+
     {
+
     for(int j=i+1;j<n;j++)
+
         {
+
           if(arr[i]==arr[j])
+
               count++;
+
           if(count!=0)
+
          var=arr[i];
+
         }
+
     }
+
     printf("%d",var);
+
     return 0;
+
 }
 
 
@@ -235,6 +256,7 @@ Sample Input 0
 Sample Output 0
 
 0 0 1 1 2
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -268,32 +290,387 @@ int main() {
     }
     return 0;
 }
+day5
+6.Get input character from user and check whether character is uppercase or lowercase alphabet .
 
+Input Format
 
+C c
 
+Constraints
 
+NiL
 
+Output Format
 
+C is Uppercase letter c is lowercase letter
 
+Sample Input 0
 
+X
+Sample Output 0
 
+X is uppercase letter
 
+code:
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
+int main() {
 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    char c;
+    scanf("%c",&c);
+    if((c>='a')&& (c<='z'))
+        printf("%c is lowercase letter",c);
+    else if((c>='A')&& (c<='Z'))
+        printf("%c is uppercase letter",c);
+    return 0;
+}
 
+7.Given a string and a character, task is to make a function which count occurrence of the given character in the string.
 
+Input Format
 
+e John Peter
 
+Constraints
 
+NIL
 
+Output Format
 
+2
 
+Sample Input 0
 
+e John Peter
+Sample Output 0
 
+2
 
+code:
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
+int main() {
 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    char ch;
+    scanf("%c",&ch);
+    char str[50];
+    fgets(str,sizeof(str),stdin);
+    int l=strlen(str),count=0;
+    for(int i=0;i<l-1;i++)
+    {
+        if(ch==str[i])
+            count++;
+    }
+    printf("%d",count);
+    return 0;
+}
+7.You are given a string s. You need to reverse the string.
 
+Input Format
 
+Hello world
 
+Constraints
 
+NIL
+
+Output Format
+
+dlrow olleH
+
+Sample Input 0
+
+Hello world 
+Sample Output 0
+
+dlrow olleH 
+code:
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    char str[50];
+    fgets(str,sizeof(str),stdin);
+    int len=strlen(str)-1;
+    for(int i=len-1;i>=0;i--)
+    {
+        printf("%c",str[i]);
+    }
+    return 0;
+}
+8.Two strings are said to be anagram if we can form one string by arranging the characters of another string. For example, Race and Care. Here, we can form Race by arranging the characters of Care.
+
+Input Format
+
+race care
+
+Constraints
+
+NIL
+
+Output Format
+
+True
+
+Sample Input 0
+
+army
+mary
+Sample Output 0
+
+True
+
+code:#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int areAnagrams(char str1[], char str2[]) {
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+    char cleanStr1[len1 + 1], cleanStr2[len2 + 1];
+    int idx1 = 0, idx2 = 0;
+    
+    for (int i = 0; i < len1; i++) {
+        if (!isspace(str1[i])) {
+            cleanStr1[idx1++] = tolower(str1[i]);
+        }
+    }
+    cleanStr1[idx1] = '\0';
+    
+    for (int i = 0; i < len2; i++) {
+        if (!isspace(str2[i])) {
+            cleanStr2[idx2++] = tolower(str2[i]);
+        }
+    }
+    cleanStr2[idx2] = '\0';
+    
+    if (idx1 != idx2) {
+        return 0;
+    }
+    int count1[256] = {0};
+    int count2[256] = {0};
+    
+    for (int i = 0; i < idx1; i++) {
+        count1[cleanStr1[i]]++;
+        count2[cleanStr2[i]]++;
+    }
+    
+    for (int i = 0; i < 256; i++) {
+        if (count1[i] != count2[i]) {
+            return 0; 
+        }
+    }
+    
+    return 1; 
+}
+
+int main() {
+    char str1[100], str2[100];
+    scanf("%s %s", str1, str2);
+    if (areAnagrams(str1, str2)) {
+        printf("True\n");
+    } else {
+        printf("False\n");
+    }
+    
+    return 0;
+}
+9.You will be given an array of integers and a target value. Determine the number of pairs of array elements that have a difference equal to a target value. pairs has the following parameter(s):
+
+k: an integer, the target difference arr: an array of integers
+
+For example, given an array of [1, 2, 3, 4] and a target value of 1, we have three values meeting the condition: 2-1 = 1, 3-2 = 1, and 4-3 = 1.
+
+Input Format
+
+The first line contains two space-separated integers n and k, the size of arr and the target value. The second line contains n space-separated integers of the array arr. Sample Input 5 2 1 5 3 4 2
+
+Constraints
+
+Nil
+
+Output Format
+
+2
+
+Sample Input 0
+
+4 1
+1 2 3 4
+Sample Output 0
+
+3
+
+code:
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+int countPairsWithDifference(int arr[], int n, int k) {
+    int count = 0;
+    qsort(arr, n, sizeof(int), compare);
+    int i = 0, j = 1;
+    while (j < n) {
+        if (arr[j] - arr[i] == k) {
+            count++;
+            j++;
+        } else if (arr[j] - arr[i] > k) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    
+    return count;
+}
+
+int main() {
+    int n, k;
+    scanf("%d %d", &n, &k);
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int result = countPairsWithDifference(arr, n, k);
+    printf("%d\n", result);
+    
+    return 0;
+}
+10.Two strings are said to be isomorphic if there is a one to one mapping possible for every character of str1 to every character of str2 and all occurrences of every character in str1 map to same character in str2.
+
+Input Format
+
+The first line contains a single string s (1 ≤ |s| ≤ 1000). The second line contains a single string t (1 ≤ |t| ≤ 1000).
+
+Constraints
+
+NIL
+
+Output Format
+
+Print True if the strings are isomorphic, otherwise print False.
+
+Sample Input 0
+
+egg
+add
+Sample Output 0
+
+True
+code:#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#define MAX_SIZE 1001
+bool areIsomorphic(char *s, char *t) {
+    int len_s = strlen(s);
+    int len_t = strlen(t);
+    if (len_s != len_t) {
+        return false;
+    }
+    char map_s_to_t[256] = {0};
+    char map_t_to_s[256] = {0};
+    
+    for (int i = 0; i < len_s; i++) {
+        char char_s = s[i];
+        char char_t = t[i];
+        if (map_s_to_t[char_s] == 0 && map_t_to_s[char_t] == 0) {
+            map_s_to_t[char_s] = char_t;
+            map_t_to_s[char_t] = char_s;
+        } else {
+            if (map_s_to_t[char_s] != char_t || map_t_to_s[char_t] != char_s) {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    char s[MAX_SIZE], t[MAX_SIZE];
+    scanf("%s", s);
+    scanf("%s", t);
+    if (areIsomorphic(s, t)) {
+        printf("True\n");
+    } else {
+        printf("False\n");
+    }
+    
+    return 0;
+}
+11.Given a matrix, your task is to rotate the matrix 90 degrees clockwise.
+
+Input Format
+
+The first line contains the numbers 'n' and ‘m’ denoting the number of rows and columns respectively.
+
+The next ‘n’ lines contains ‘m’ space-separated integers denoting elements of a 2-d matrix.
+
+Constraints
+
+NIL
+
+Output Format
+
+For each test case, It contains ‘m’ lines containing ‘n’ space-separated integers denoting the resultant matrix.
+
+Sample Input 0
+
+3 3
+1 2 3
+4 5 6
+7 8 9
+Sample Output 0
+
+7 4 1
+8 5 2
+9 6 3
+
+code":#include <stdio.h>
+#define MAX_SIZE 100
+void rotateMatrix(int mat[][MAX_SIZE], int n, int m) {
+    int temp[MAX_SIZE][MAX_SIZE];
+     for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            temp[j][n - 1 - i] = mat[i][j];
+        }
+    }
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            mat[i][j] = temp[i][j];
+        }
+    }
+}
+int main() {
+    int n, m;
+    int mat[MAX_SIZE][MAX_SIZE];
+    scanf("%d %d", &n, &m);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    rotateMatrix(mat, n, m);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
