@@ -1,0 +1,80 @@
+preorder,postorder,inorder,findheight,findmax;
+#include <stdio.h>
+#include<malloc.h>
+#define max(a,b) (a>b)?(a):(b)
+typedef struct node 
+{
+    int data;
+    struct node *left,*right;
+}NODE;
+NODE *newnode,*root;
+NODE* createnode(int num)
+{
+    newnode=(NODE*)malloc(sizeof(NODE));
+    newnode->data=num;
+    newnode->left=NULL;
+    newnode->right=NULL;
+    return newnode;
+} 
+NODE* insert(NODE* node,int num)
+{
+    if(node==NULL)
+    return createnode(num);
+    else if(num<node->data)
+    node->left=insert(node->left,num);
+    else
+    node->right=insert(node->right,num);
+    return node;
+}
+void displaypreorder(NODE*node)
+{
+    if(node!=NULL)
+   {
+       printf("%d ",node->data);
+    displaypreorder(node->left);
+    displaypreorder(node->right);
+}
+}
+void displaypostorder(NODE*node)
+{
+    if(node!=NULL)
+    {
+    displaypostorder(node->left);
+    displaypostorder(node->right);
+    printf("%d ",node->data);
+}
+}
+void displayinorder(NODE*node)
+{
+    if(node!=NULL)
+ {
+    displayinorder(node->left);
+    printf("%d ",node->data);
+    displayinorder(node->right);
+    
+}
+}
+int findheight(NODE *node)
+{
+    if(node==NULL)
+    return -1;
+    return max(findheight(node->left),findheight(node->right))+1;
+}  
+int main()
+{
+    root=insert(root,9);
+    insert(root,7);
+    insert(root,14);
+    insert(root,6);
+    insert(root,8);
+    insert(root,11);
+    insert(root,16);
+    displaypreorder(root);
+    printf("preorder\n");
+    displaypostorder(root);
+    printf("postorder\n");
+    displayinorder(root);
+    printf("inorder\n");
+    printf("%d",findheight(root)+1);
+    return 0;
+}
